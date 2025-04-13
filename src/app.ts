@@ -1,6 +1,25 @@
+import { envs } from "./config/envs";
+import { AppRoutes } from "./presentation/routes";
+import { Server } from "./presentation/server";
 
 
 
-console.log("Starting");
-console.log("--------------------------------");
-console.log("testing");
+
+
+
+( async () => {
+
+  main();
+})();
+
+async function main() {
+  
+  const server = new Server({
+    port: envs.PORT,
+    routes: AppRoutes.routes,
+  });
+
+  server.start();
+}
+
+
