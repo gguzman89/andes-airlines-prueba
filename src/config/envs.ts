@@ -1,5 +1,5 @@
-import { get } from "env-var";
 import "dotenv/config";
+import { get } from "env-var";
 
 
 
