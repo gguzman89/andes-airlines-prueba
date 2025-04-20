@@ -13,6 +13,17 @@ export class FlightController {
   ) {}
   
   checkIn( req: Request, res: Response ) {
+  
+    /**
+     * TODO: response entity checIn
+     * "flightId":1,
+        "takeoffDateTime":1688207580,
+        "takeoffAirport":"AeropuertoInternacionalArturoMerinoBenitez,Chile",
+        "landingDateTime":1688221980,
+        "landingAirport":"AeropuertoInternacionalJorgeCháve,Perú",
+        "airplaneId":1,
+        "passengers":[{}]
+     */
     
     throw new Error("Method not implemented.");
   }
@@ -20,7 +31,7 @@ export class FlightController {
   getFlights = ( req: Request, res: Response ) => {
 
     this.repository.getAll()
-      .then( res.status(200).json )
+      .then( flights => res.status(200).json({ flights }) )
       .catch( error => res.status(500).json({ err: 'Internal server error' }) )
   }
 }
