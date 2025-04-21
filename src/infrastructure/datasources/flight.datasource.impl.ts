@@ -1,7 +1,5 @@
 import { airplane } from "../../data";
-import { FlightDatasource } from "../../domain/datasources/flight.datasource";
-import { FlightEntity } from "../../domain/entities/flight.entity";
-import { IFlight } from "../../domain/interfaces/IFlight.interface";
+import { FlightDatasource, FlightEntity } from "../../domain";
 
 
 

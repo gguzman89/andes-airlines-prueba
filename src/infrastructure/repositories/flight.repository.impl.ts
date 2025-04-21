@@ -1,6 +1,4 @@
-import { FlightDatasource } from "../../domain/datasources/flight.datasource";
-import { FlightEntity } from "../../domain/entities/flight.entity";
-import { FlightRepository } from "../../domain/repositories/flight.repository";
+import { FlightDatasource, FlightEntity, FlightRepository } from "../../domain";
 
 
 

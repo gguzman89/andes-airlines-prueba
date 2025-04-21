@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { FlightRepository } from "../../domain/repositories/flight.repository";
+import { CustomError, FlightRepository } from "../../domain";
 
 
 
@@ -32,7 +32,17 @@ export class FlightController {
 
     this.repository.getAll()
       .then( flights => res.status(200).json({ flights }) )
-      .catch( error => res.status(500).json({ err: 'Internal server error' }) )
+      .catch( error => this.handleError( error, res ))
+  }
+
+  private handleError = ( error: unknown, res: Response ) => {
+    
+    if ( error instanceof CustomError ) {
+      return res.status( error.statusCode ).json({ error: error.message });
+    }
+
+    console.log( `${error}` );
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 }
 
