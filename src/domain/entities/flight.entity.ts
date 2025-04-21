@@ -1,3 +1,4 @@
+import { CustomError } from "../errors/custom.error";
 
 
 
@@ -23,7 +24,7 @@ export class FlightEntity {
             boarding_pass, airplane
     } = obj;
 
-    if ( flight_id === undefined ) throw new Error( 'Missing ID Flight required' );
+    if ( flight_id === undefined ) throw CustomError.badRequest( 'Missing ID Flight required' );
 
     return new FlightEntity(
       flight_id, takeoff_date_time, takeoff_airport, landing_date_time, landing_airport, airplane_id,
